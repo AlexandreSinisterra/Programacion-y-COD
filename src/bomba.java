@@ -69,7 +69,7 @@ public class bomba {
                         System.out.println("estás muerto :)");
                         System.out.println("Bad ending");
                         break;
-                }
+                }break;
                     case 4:
                         System.out.println("50,49,48,47,46,45,44,43,42,41");
                         System.out.println("seguro que no quieres hacer nada?");
@@ -136,7 +136,7 @@ public class bomba {
                                         System.out.println("Bad ending");
 
                                         break;
-                                }
+                                }break;
                                     case 24:
                                         System.out.printf("bueno, no pasa nada, no todo el mundo le apetece participar en estas cosas");
                                         System.out.println(" hasta nunca");
