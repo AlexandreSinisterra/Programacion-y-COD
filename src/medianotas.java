@@ -11,6 +11,7 @@ public class medianotas {
             {
                 suma=suma+nota;
                 numero++;
+                System.out.println("introduce la siguiente nota, para salir -1: ");
                 nota= sc.nextInt();
             }
             media=suma/numero;
