@@ -1,7 +1,6 @@
 import java.util.Scanner;
 public class bomba {
     public static void main(String[] args) {
-        System.out.println("no sirve xq si hace 1 salta a los demás");
         System.out.println("Hay una bomba, corta el cable correcto, buena suerte");
         System.out.println("60,59,58,57,56,55,54,53,52,51");
         System.out.println("1-cortar cable rojo");
