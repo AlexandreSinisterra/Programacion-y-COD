@@ -15,3 +15,11 @@ public class factorial {
         System.out.println("o Factorial do numero " + numero + " es de: " + factorial + ".");
     }
 }
+/*
+static long factorialRecursivo(int n){
+long res;
+if(n==0)res=1;
+else res= n * factorialRecursivo(n-1);
+return res;
+}
+*/
