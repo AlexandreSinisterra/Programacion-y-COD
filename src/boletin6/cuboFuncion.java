@@ -10,15 +10,17 @@ public class cuboFuncion {
             System.out.println("dime el lado: ");
         int lado = sc.nextInt();
         sc.close();
-            volumen(a, lado);
-            area(a, lado);
+            if (a==1)
+            volumen(lado);
+            if (a==2)
+            area(lado);
     }
-    static void volumen (1,int lado){
-      int volumen=lado^3;
+    static void volumen (int lado){
+      int volumen=lado*lado*lado;
       System.out.println("el volumen del cubo es de: "+volumen);
     }
-    static void area (2, int lado){
-        int area=lado^2;
+    static void area (int lado){
+        int area=lado*lado;
         System.out.println("el area del cubo es de: "+area);
     }
 
