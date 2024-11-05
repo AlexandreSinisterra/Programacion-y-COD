@@ -14,6 +14,9 @@ public class cuboFuncion {
             volumen(lado);
             if (a==2)
             area(lado);
+            if (a!=2&&a!=1)
+                System.out.println("elegiste ninguno de los 2");
+
     }
     static void volumen (int lado){
       int volumen=lado*lado*lado;
