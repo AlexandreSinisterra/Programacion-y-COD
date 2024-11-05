@@ -1,6 +1,6 @@
 package boletin6;
 
-import java.util.Scanner;//en trabajo
+import java.util.Scanner;
 
 public class cuboFuncion {
     public static void main(String[] args) {
