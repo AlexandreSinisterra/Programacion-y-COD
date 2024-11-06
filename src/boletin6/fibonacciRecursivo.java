@@ -4,24 +4,18 @@ import java.util.Scanner;
 
 public class fibonacciRecursivo {
     public static void main(String[] args) {
-        System.out.println("dime cuantos numeros de fibonacci quieres: ");
+        System.out.println("Dime cuántos números de Fibonacci quieres: ");
         Scanner sc = new Scanner(System.in);
-        int numeros = sc.nextInt();//con esto tenemos el numero maximo de numeros que queremos
+        int numeros = sc.nextInt();  // cantidad de numeros de fibonacci
         sc.close();
-        int a=1;
-        int b=1;//estas 2 variables seran las que nos calculen los numeros
-        int n3=numeros;//es simplemente para que en la 3era vuelta empiece a calcular los numeros, ya que son != a 1
-        System.out.println("el resultado es: ");
-        fibonacci (numeros,a,n3,b);
+        System.out.println("El resultado es: ");
+        fibonacci(numeros, 0, 1);  // Comenzamos con 0 y 1, ya que son los dos primeros números de la secuencia
     }
-    static void fibonacci(int n1,int n2,int n3,int n4) {
-        if(n3!=n1&&(n3!=n1+1)){
-            n2=n2+n4;//aqui sumaremos el numero anterior a n2 de la secuencia que lo metemos a n4
-            n4=n2-n4;//si ponemos que el numero siguiente(n2) sea n2+n4, pues el anterior es simplemente n2-n4
-        }
-        if (n1 != 0) {
-            System.out.println(n2+",");
-            fibonacci(n1 - 1,n2,n3,n4); //vamos restando 1 a la cantidad de numeros que queremos, cuando llegue a 0 se terminara el recursivo
+    static void fibonacci(int n, int n1, int n2) {
+        if (n != 0) {
+            System.out.print(n1 + ", ");  // numeros
+            // la secuencia de fibonacci va aumentando sumando el numero anterior, asi que hariamos n1(numero actual) + n2(numero anterior)
+            fibonacci(n - 1, n1 + n2, n1);
         }
     }
 }
