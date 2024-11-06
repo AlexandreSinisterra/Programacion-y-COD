@@ -11,7 +11,7 @@ public class fibonacciRecursivo {
         System.out.println("El resultado es: ");
         fibonacci(numeros, 0, 1);  // Comenzamos con 0 y 1, ya que son los dos primeros números de la secuencia
     }
-    static void fibonacci(int n, int n1, int n2) {
+    static void fibonacci(int n, long n1, long n2) {
         if (n != 0) {
             System.out.print(n1 + ", ");  // numeros
             // la secuencia de fibonacci va aumentando sumando el numero anterior, asi que hariamos n1(numero actual) + n2(numero anterior)
