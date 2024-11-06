@@ -11,10 +11,12 @@ public class diferenciaHoras {
             int hora2 = sc.nextInt();
             int minuto2 = sc.nextInt();
         sc.close();
-        diferenciaMin (hora1,minuto1,hora2,minuto2);}
+        diferenciaMin (hora1,minuto1,hora2,minuto2);
+        System.out.println("La diferencia entre las dos horas es: " + diferenciaMin (hora1,minuto1,hora2,minuto2) + " minutos.");
+    }
         static int diferenciaMin (int hora1, int minuto1, int hora2, int minuto2){
             int diferencia= (hora1*60+minuto1)-(hora2*60+minuto2);
             if (diferencia<0) diferencia=-diferencia;
-            System.out.println("la diferencia es de: "+diferencia);
+            return diferencia;
         }
 }
