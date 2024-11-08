@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class potenciaRecursiva {
     public static void main(String[] args) {
-        System.out.println("dime la base y la potencia respectivamente y te digo el resultado: ");
+        System.out.println("dime la base y el exponente respectivamente y te digo el resultado: ");
         Scanner sc = new Scanner(System.in);
         int base = sc.nextInt();
-        int potencia = sc.nextInt();
+        int exponente = sc.nextInt();
         sc.close();
-        total (base,potencia);//calculamos la potencia
-        System.out.println("eel resultado es: "+total (base,potencia));
+        total (base,exponente);//calculamos la potencia
+        System.out.println("el resultado es: "+total (base,exponente));
     }
     static int total(int n1, int n2) {
         int resto;
