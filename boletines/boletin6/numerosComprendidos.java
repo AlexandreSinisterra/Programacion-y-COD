@@ -3,7 +3,7 @@ package boletin6;
 import java.util.Scanner;
 public class numerosComprendidos {
     public static void main(String[] args) {
-        System.out.println("dime 2 numeros y te digo cuales hay de por medio: ");
+        System.out.println("dime 2 boletinIDK.numeros y te digo cuales hay de por medio: ");
         Scanner sc = new Scanner(System.in);
         double a = sc.nextDouble();
         double b = sc.nextDouble();

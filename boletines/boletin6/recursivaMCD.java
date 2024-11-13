@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class recursivaMCD {
     public static void main(String[] args) {
-        System.out.println("dime 2 numeros y te indico su maximo comun divisor: ");
+        System.out.println("dime 2 boletinIDK.numeros y te indico su maximo comun divisor: ");
         Scanner sc = new Scanner(System.in);
         int n1 = sc.nextInt();
         int n2 = sc.nextInt();

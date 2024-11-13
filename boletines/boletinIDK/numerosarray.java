@@ -1,3 +1,5 @@
+package boletinIDK;
+
 import java.util.Scanner;
 class num {
     public static void main(String[] args) {
@@ -15,7 +17,7 @@ class num {
 //Preguntamos si el numero es mayor o igual a 0 o menor o igual a 100 que realize el programa, si el numero es contrario a estos no hara el programa
     }
 
-    static String num(int numero) {//con esto calculamos el string num(numero), cuando lo calculamos volvemos arriba y sale por pantalla
+    static String num(int numero) {//con esto calculamos el string boletinIDK.num(numero), cuando lo calculamos volvemos arriba y sale por pantalla
         String[] unidades = { //elige el valor de las unidades
                 "cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez",
                 "once", "doce", "trece", "catorce", "quince", "dieciséis", "diecisiete", "dieciocho", "diecinueve"
@@ -26,9 +28,9 @@ class num {
         };
 
         if (numero < 20) {
-            return unidades[numero]; //volverá ya que ya tiene el valor de num(numero)
+            return unidades[numero]; //volverá ya que ya tiene el valor de boletinIDK.num(numero)
         } else if (numero < 30) {
-            return (numero == 20) ? "veinte" : "veinti" + unidades[numero - 20];  //num(numero) puede tomar esos 2 valores
+            return (numero == 20) ? "veinte" : "veinti" + unidades[numero - 20];  //boletinIDK.num(numero) puede tomar esos 2 valores
             //cuando ponemos unidades[numero] toma el valor en el array de la posicion q tiene [numero], en este caso se suma al veinti
         } else {
             int unidad = numero % 10;

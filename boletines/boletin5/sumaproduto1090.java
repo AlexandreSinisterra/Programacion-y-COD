@@ -8,6 +8,6 @@ public class sumaproduto1090 {
             suma= suma + i;
             producto = producto * i;
         }
-        System.out.println("la suma de los numeros comprendidos entre 10 y 90 es " + suma + " y su producto es " + producto);
+        System.out.println("la suma de los boletinIDK.numeros comprendidos entre 10 y 90 es " + suma + " y su producto es " + producto);
     }
 }

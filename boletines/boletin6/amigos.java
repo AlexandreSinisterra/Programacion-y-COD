@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class amigos {
     public static void main(String[] args) {
-        System.out.println("dime 2 numeros enteros positivos y te digo si son amigos: ");
+        System.out.println("dime 2 boletinIDK.numeros enteros positivos y te digo si son amigos: ");
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
         int b = sc.nextInt();
@@ -16,7 +16,7 @@ public class amigos {
     }
     static int amigosdea(int n1){
         int amigos=0;
-        for (int i=1; i<n1; i++)//vamos viendo si cada uno de sus numeros menores hasta 0 son divisores
+        for (int i=1; i<n1; i++)//vamos viendo si cada uno de sus boletinIDK.numeros menores hasta 0 son divisores
         {
             if (n1%i==0) amigos=amigos+i;//los vamos sumando
         }
@@ -24,7 +24,7 @@ public class amigos {
     }
     static int amigosdeb(int n2){
         int amigos=0;
-        for (int i=1; i<n2; i++)//aquihacemos lo mismo, sque el codigo de mi codigo de numeros primos
+        for (int i=1; i<n2; i++)//aquihacemos lo mismo, sque el codigo de mi codigo de boletinIDK.numeros boletinIDK.primos
         {
             if (n2%i==0) amigos=amigos+i;
         }

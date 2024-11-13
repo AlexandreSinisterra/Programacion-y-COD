@@ -1,3 +1,4 @@
+package boletinIDK;
 
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class Main {
                  }
 
         System.out.println("2do ejercicio: ");
-            System.out.println("introduce 2 numeros: ");
+            System.out.println("introduce 2 boletinIDK.numeros: ");
                 short n2,n3;
 
                     n2= sc.nextShort();

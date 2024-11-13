@@ -1,3 +1,5 @@
+package boletinIDK;
+
 import java.util.Scanner;
 public class notas {
     public static void main(String[] args) {
