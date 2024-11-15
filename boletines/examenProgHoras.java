@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class examenProgHoras {
     public static void main(String[] args) {
         System.out.println("dime tu hora, introduciendo las horas,minutos y segundos respectivamente : ");
@@ -23,6 +22,5 @@ public class examenProgHoras {
             horas-=24;//no hace falta poner la cantidad de dias, asique solo resto 24 para que pase 1 dia
         }
         System.out.println("a nova hora será as "+horas+":"+minutos+":"+segundos);
-
     }
 }
