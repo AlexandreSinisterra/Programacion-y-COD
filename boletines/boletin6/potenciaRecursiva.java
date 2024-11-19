@@ -9,8 +9,7 @@ public class potenciaRecursiva {
         int base = sc.nextInt();
         int exponente = sc.nextInt();
         sc.close();
-        total (base,exponente);//calculamos la potencia
-        System.out.println("el resultado es: "+total (base,exponente));
+        System.out.println("el resultado es: "+total (base,exponente));//calculamos la potencia
     }
     static int total(int n1, int n2) {
         int resto;
