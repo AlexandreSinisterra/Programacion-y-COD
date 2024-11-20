@@ -52,6 +52,30 @@ public class notasClaseArrayMejorado {
              hay un valor repetido y que le añada un caracter y que el valor de repetido sea true, mientras que repetido sea true se sigue repitiendo, hasta
              que no haya ningun valor al nombre y el valor vuelva a false.
              **/
+            /**
+             tambien se podria hacer de la siguiente forma si no queremos hacer un while do, aunque no se cual es mejor, el primero es mas compacto
+             y es la primera vez que utilizo un do while viendolo necesario de primeras "AJSHAJSHHJADH" en la otra no se le asignaría todo el rato
+             el valor de true a repetido por si acaso lo hacemos mas de 1 vez el bucle, supongo que es mas eficiente este ya que nos ahorramos esta
+             parte a pesar de que tenga mas lineas, el problema esque no se como funciona la memoria, si ponemos mas lineas el peor, asique suponiendo esto
+             creo que el primer codigo seria mejor en codigos donde se haria el bucle pocas veces, a partir de 'X' bucles saldira mas rentable el de abajo
+
+             for (int comprobacion=0;comprobacion<i;comprobacion++){
+                if (notasnome[comprobacion].equals(nombre)){
+                    repetido=true;
+                    nombre += (char) ('A' + (int) (Math.random() * 26));
+                }
+                else repetido=false;
+             }
+
+             while(repetido==true) {
+                for (int comprobacion=0;comprobacion<i;comprobacion++){
+                    if (notasnome[comprobacion].equals(nombre)){
+                        nombre += (char) ('A' + (int) (Math.random() * 26));
+                    }
+                    else repetido=false;
+                }
+             }
+             **/
             notasnome[i] = nombre;//ya ha terminado el nombre, ahora es cuando lo "metemos" en el array
             System.out.println(nombre+":"+notas[i]);
             nombre="";//volvemos a valor "" de nombre, para que vuelva a empezar
