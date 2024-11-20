@@ -88,8 +88,22 @@ public class mapEjemplo {
  System.out.println(entry.getKey() + ": " + entry.getValue());
  }
 
- entry la declaramos como un map con la clave string y el valor integer
- mapaNotas.entrySet() nos devuelve un conjunto (Set) de objetos Map.Entry, en un map cada set esta compuesto por una clave y un valor
- Map.Entry<String, Integer> almacenará los valores anteriores
- hacemos un bucle porque nuestra clave y el valor irá cambiando en cada vuelta, ya que el map.entry estara recorriendo nuestro mapaNotas
+ creamos una variable entry del tipo map que tendra string como key e ira recorriendo nuestro map, tomando los valores del nuestro
+ luego ponemos que los saque por pantalla
+
+ -eachfor
+
+ entry.getKey()
+ entry.getValue()
+
+ esto se puede hacer cuando estemos recorriedno el bucle y le pidamos que un valor o key sea igual, y nos da su pareja
+ el
+
+ entry.get()
+
+ se utiliza mas bien en listas, lo que lo utilice sobretodo son con contain. ejemplo:
+
+ if (mapaNotas.containsKey(alumno)) {
+ System.out.println("La nota de " + alumno + " es: " + mapaNotas.get(alumno));
+ }
  **/
