@@ -11,27 +11,28 @@ public class repetidosEliminarMatriz {
         int vueltas=0;
         int longitud=notas.length;
         int repeticiones=-1;
-        boolean primer_5=false;
+        int primer_valor=notas[0];
+        boolean primer_valor2=false;
         for (int contenido:notas){
             vueltas++;
             for (int i=vueltas;i<notas.length; i++) {
                 if (contenido==notas[i]) {
-                        notas[i]= 5;
+                        notas[i]= primer_valor;
                 }
             }
-            if (contenido==5){
+            if (contenido==primer_valor){
                 repeticiones++;
             }
         }
         longitud-=repeticiones;
         int[] norepetir = new int[longitud];
             for (int i=0,posicion=0; i<notas.length;i++,posicion++){
-                if(primer_5==false) {
+                if(primer_valor2==false) {
                     norepetir[posicion] = notas[i];
-                    if (notas[i]==5) primer_5=true;
+                    if (notas[i]==primer_valor) primer_valor2=true;
                 }
                 else{
-                    if (notas[i]==5) posicion--;
+                    if (notas[i]==primer_valor) posicion--;
                     else norepetir[posicion] = notas[i];
                 }
             }
