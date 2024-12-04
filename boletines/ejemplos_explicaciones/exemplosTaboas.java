@@ -1,3 +1,5 @@
+package ejemplos_explicaciones;
+
 public class exemplosTaboas {
     public static void main (String []args){
         // Definimos los arreglos de nombres y edades.

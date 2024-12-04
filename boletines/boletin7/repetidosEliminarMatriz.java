@@ -12,7 +12,7 @@ public class repetidosEliminarMatriz {
         int longitud=notas.length;
         int repeticiones=-1;
         int primer_valor=notas[0];
-        boolean primer_valor2=false;
+        boolean primer_valor2=false;    
         for (int contenido:notas){
             vueltas++;
             for (int i=vueltas;i<notas.length; i++) {

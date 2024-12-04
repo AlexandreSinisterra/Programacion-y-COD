@@ -1,3 +1,5 @@
+package ejemplos_explicaciones;
+
 import java.util.Scanner;
 
 public class unCafe {

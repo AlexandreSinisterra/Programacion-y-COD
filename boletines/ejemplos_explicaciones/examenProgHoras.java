@@ -1,3 +1,5 @@
+package ejemplos_explicaciones;
+
 import java.util.Scanner;
 public class examenProgHoras {
     public static void main(String[] args) {
