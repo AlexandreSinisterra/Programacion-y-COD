@@ -48,8 +48,8 @@ public class elJuegodelosBarcos {
             }
             meterbarco(tablero,tipobarco);
         }
-        while((tipobarco>0&&tipobarco<3)||NB4>0||NB3>0||NB2>0);//simplemente para comprobar el tablero
-        for (int[] ints : tablero) {
+        while(NB4>0||NB3>0||NB2>0);//se repite hasta que los barcos se acaben
+        for (int[] ints : tablero) {//simplemente para comprobar el tablero
             for (int j = 0; j < ints.length; j++) {
                 System.out.print(ints[j] + " ");
             }
