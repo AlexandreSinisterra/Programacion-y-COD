@@ -49,14 +49,36 @@ public class elJuegodelosBarcos {
             meterbarco(tablero,tipobarco);
         }
         while(NB4>0||NB3>0||NB2>0);//se repite hasta que los barcos se acaben
-        for (int[] ints : tablero) {//simplemente para comprobar el tablero
-            for (int j = 0; j < ints.length; j++) {
-                System.out.print(ints[j] + " ");
+        for (int[] ints : tablero) {//simplemente para mostrar el tablero
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
             }
             System.out.println();
         }
+        sc.close();
     }
-    public static void meterbarco(int [][] tablero, int barco){
+    public static int[][] meterbarco(int [][] tablero, int barco){
+        Scanner sc = new Scanner(System.in);
+        int tamaño_barco=barco;
+        System.out.println("este es tu tablero:");
+        for (int[] ints : tablero) {
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("donde quieres colocar tu barco, pon las coordenadas de las 2 puntas del barco, solo horizontal y vertical se puede colocar");
+        System.out.println("fila:");
+        int fila1= sc.nextInt();
+        System.out.println("columna:");
+        int columna1= sc.nextInt();
+        System.out.println("ahora dime las de la otra punta:");
+        System.out.println("fila:");
+        int fila2= sc.nextInt();
+        System.out.println("columna:");
+        int columna3= sc.nextInt();
 
+
+        return tablero;
     }
 }
