@@ -245,11 +245,15 @@ espacio solo para separar funciones
             int fila = sc.nextInt();
             System.out.println("columna:");
             int columna = sc.nextInt();//coordenadas de disparo
-            if (tablero[0][fila][columna] < 0)  System.out.println("volviste a disparar en un sitio donde ya habias disparado");
+            if (tablero[0][fila][columna] < 0) {
+                System.out.println("volviste a disparar en un sitio donde ya habias disparado");
+                win = false;
+            }
             else {
                 if (tablero[0][fila][columna] == 0) {//si no hay barcos significa que en array hay un "0" q representa el agua
                     System.out.println("agua");
                     tablero2[fila][columna] = "O";//ponemos en el tablero que ve el simbolo que elegimos para agua
+                    win=false;
                 } else {
                     System.out.println("tocado");//si es cualquier otro numero significa q es un barco
                     tablero2[fila][columna] = "X";//lo represento ene l tablero con una "X"
