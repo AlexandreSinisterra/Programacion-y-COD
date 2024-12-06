@@ -77,7 +77,7 @@ public class elJuegodelosBarcos {
             }
             System.out.println();
         }
-        System.out.println("donde quieres colocar tu barco, pon las coordenadas de las 2 puntas del barco, solo horizontal y vertical se puede colocar");
+        System.out.println("donde quieres colocar tu barco, pon las coordenadas de las 2 puntas del barco");
         do {
             error = false;
             System.out.println("fila:");
@@ -119,7 +119,6 @@ public class elJuegodelosBarcos {
                         if (tablero[i][j] != 0) {
                             error = true;//error de casilla ocupada
                             System.out.println("Se estaba construyendo el barco pero choco con otro barco en las coordenadas: " + i + " " + j);
-                            System.out.println("por favor, introduzca otras coordenadas");
                         }
                     }
                 }
@@ -135,7 +134,6 @@ public class elJuegodelosBarcos {
                     if (tablero[i][columna1] != 0) {
                         error = true;//error de casilla ocupada
                         System.out.println("Se estaba construyendo el barco pero choco con otro barco en las coordenadas: " + i + " " + columna1);
-                        System.out.println("por favor, introduzca otras coordenadas");
                     }
                     columna1++;
                 }
