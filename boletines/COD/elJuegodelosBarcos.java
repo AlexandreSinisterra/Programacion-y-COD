@@ -214,6 +214,9 @@ espacio solo para separar funciones
      */
     public static int disparobarco(String[][] tablero2, int[][][] tablero) {//el turno del que dispara
         boolean hundido;
+        boolean tablerocompleto1boolean=false;
+        boolean tablerocompleto2boolean=false;
+        boolean tablerocompleto3boolean=false;
         int turno = 0;
         int tablerocompleto1 = 5;
         int tablerocompleto2 = 5;
@@ -271,22 +274,26 @@ espacio solo para separar funciones
                                 //lo mismo pero con el 1er nivel del tablero que serian donde estan todos los abrcos, si no hay barcos es una victoria
                             }
                         }
-                        if (hundido) {//vamos indicando que capas estan completas para no volver a hacerlas y que nos digan hundido
-                            System.out.println("HUNDIDO");
+                        if (hundido&&!(tablerocompleto1boolean)) {//vamos indicando que capas estan completas para no volver a hacerlas y que nos digan hundido
+                            System.out.println("HUNDIDO, 3 barcos restantes");
                             tablerocompleto1 = i;
+                            tablerocompleto1boolean=true;
                             hundido=false;
                         }
-                        if (hundido) {
-                            System.out.println("HUNDIDO");
+                        if (hundido&&!(tablerocompleto2boolean)) {
+                            System.out.println("HUNDIDO, 2 barcos restantes");
                             tablerocompleto2 = i;
+                            tablerocompleto2boolean=true;
                             hundido=false;
                         }
-                        if (hundido) {
-                            System.out.println("HUNDIDO");
+                        if (hundido&&!(tablerocompleto3boolean)) {
+                            System.out.println("HUNDIDO, 1 barco restante");
                             tablerocompleto3 = i;
+                            tablerocompleto3boolean=true;
                         }
                     }
                     if (win) { //mensaje de victoria
+                        System.out.println("HUNDIDO, no quedan barcos");
                         System.out.println("GANASTE");
                         System.out.println("tardaste " + turno + " turnos");
                     }
