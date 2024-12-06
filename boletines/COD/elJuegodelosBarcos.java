@@ -63,6 +63,7 @@ public class elJuegodelosBarcos {
     }
     /*
 
+espacio solo para separar funciones
 
      */
     public static int[][] meterbarco(int [][] tablero, int tamaño_barco){
@@ -148,4 +149,5 @@ public class elJuegodelosBarcos {
         while(error);
         return tablero;
     }
+    //volvi
 }
