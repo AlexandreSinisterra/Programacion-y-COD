@@ -9,84 +9,28 @@ public class elJuegodelosBarcos {
         System.out.println("empecemos el juego");
         System.out.println("nombre del jugador 1 en esta partida: ");
         String nombre1= sc.next();
-        int turno1 = jugador();
+        int turno1 = jugador();//jugador es la funcion con la que se lleva a cabo la partida
         System.out.println("siguiente juego");
         System.out.println("nombre del jugador 1 en esta partida: ");
         String nombre2= sc.next();
         int turno2 = jugador();
-        if (turno1==turno2) {
+        if (turno1==turno2) {//si los turnos son iguales significa un empate, no creo q tenga q comentar eso...
             System.out.println("EMPATE");
         }
         else {
-            int tdelGanador = (turno1 > turno2) ? turno2 : turno1;
-            String ndelGanador = (turno1 > turno2) ? nombre1 : nombre2;
-            int diferenciaTurnos= turno1-tdelGanador+turno2-tdelGanador;
+            int tdelGanador = (turno1 > turno2) ? turno2 : turno1;//se elige el turno mas pequeño como ganbador
+            String ndelGanador = (turno1 > turno2) ? nombre1 : nombre2;//si se tardan mas en el primer juego, quiere decir que el jugador 1 (el que coloca los barcos), gana
+            int diferenciaTurnos= turno1-tdelGanador+turno2-tdelGanador;//matematicas simples, es literalmente--> z=x-x+x-y --> z=x-y ("y" siendo la menos, asi me ahorro volver a comparar cual es mas pequeño)
             System.out.println("el ganador es " + ndelGanador + " con " + tdelGanador + " turnos, una diferencia de "+diferenciaTurnos+" turnos.");
         }
     }
         public static int jugador (){
-            Scanner sc = new Scanner(System.in);
-            int[][][] tablero = {{//nuestro hermoso tablero vacío
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-            },
-                    {//nuestro hermoso tablero vacío
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    },
-                    {//nuestro hermoso tablero vacío
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    },
-                    {//nuestro hermoso tablero vacío
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    },
-                    {//nuestro hermoso tablero vacío
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                            {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                    }
-            };
+            Scanner sc = new Scanner(System.in);//hice un
+            int[][][] tablero = new int[5][10][10];
+            for (int i = 0; i < 5; i++)
+                for (int j = 0; j < 10; j++)
+                    for (int k = 0; k < 10; k++)
+                        tablero[i][j][k] = 0;
             System.out.println("jugador 1, su turno");
             int tipobarco;
             int NB4 = 1;
@@ -150,21 +94,14 @@ public class elJuegodelosBarcos {
             System.out.println("  +---------------------+");
             System.out.println("jugador 2, su turno");
             System.out.println("a ver en cuantos turnos terminas con todos los barcos");
-            String[][] tablero2 = {//nuestro hermoso tablero vacío
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-            };
+            String[][] tablero2 = new String[10][10];
+            for (int i = 0; i < tablero2.length; i++) {
+                for (int j = 0; j < tablero2[i].length; j++) {
+                    tablero2[i][j] = "?";
+                }
+            }
             return disparobarco(tablero2, tablero);
         }
-
     /*
 
 espacio solo para separar funciones
