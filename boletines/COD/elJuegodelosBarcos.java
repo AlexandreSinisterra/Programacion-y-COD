@@ -100,10 +100,10 @@ public class elJuegodelosBarcos {
         String[][] tablero2 = new String[10][10];//tablero del que dispara
         for (int i = 0; i < tablero2.length; i++) {
             for (int j = 0; j < tablero2[i].length; j++) {
-                tablero2[i][j] = "?";
+                tablero2[i][j] = "?";//rellenamos el tablero con "?"
             }
         }
-        return disparobarco(tablero2, tablero);
+        return disparobarco(tablero2, tablero);//devolvemos el valor que nos da "disparobarco" que serian los turnos que hemos tardado
     }
 
     /*
@@ -111,14 +111,14 @@ public class elJuegodelosBarcos {
 espacio solo para separar funciones
 
      */
-    public static int[][][] meterbarco(int[][][] tablero, int tamaño_barco, int vuelta) {
+    public static int[][][] meterbarco(int[][][] tablero, int tamaño_barco, int vuelta) {//va cambiendo el tablero, metiendo los barcos
         Scanner sc = new Scanner(System.in);
         int tamaño, tamaño_inclinado, guardar_columna1;
         boolean error;
         int cambio, fila1, fila2, columna1, columna2;
         System.out.println("este es tu tablero:");
         System.out.print("    ");
-        for (int i = 0; i < tablero[0].length; i++) {
+        for (int i = 0; i < tablero[0].length; i++) {//mostramos el tablero
             System.out.print(i + " ");
         }
         System.out.println();
@@ -160,8 +160,8 @@ espacio solo para separar funciones
                 columna2 = columna1;
                 columna1 = cambio;
             }
-            tamaño_inclinado = fila2 - fila1 + 1;
-            tamaño = (fila2 - fila1 + columna2 - columna1) + 1;
+            tamaño_inclinado = fila2 - fila1 + 1;//si es inclinado las columnas y filas 1, y las 2, tendran el mismo valor
+            tamaño = (fila2 - fila1 + columna2 - columna1) + 1;//esto es si es recto
 
             if ((tamaño != tamaño_barco) && (tamaño_inclinado != tamaño_barco)) {
                 error = true;//error de tamaño de barco
@@ -181,7 +181,7 @@ espacio solo para separar funciones
                 if (error) continue;
                 for (int i = fila1; i <= fila2; i++) {
                     for (int j = columna1; j <= columna2; j++) {
-                        tablero[0][i][j] = tamaño_barco;
+                        tablero[0][i][j] = tamaño_barco;//colocamos el barco recto
                         tablero[vuelta][i][j] = tamaño_barco;
                     }
                 }
@@ -197,14 +197,14 @@ espacio solo para separar funciones
                 if (error) continue;
                 columna1 = guardar_columna1;//me gustaria mas utilizar en el bucle de abajo esta variable, pero lo pongo asi xq queda mas claro
                 for (int i = fila1; i <= fila2; i++) {
-                    tablero[0][i][columna1] = tamaño_barco;
+                    tablero[0][i][columna1] = tamaño_barco;//colocamos el barco en diagonal
                     tablero[vuelta][i][columna1] = tamaño_barco;
                     columna1++;
                 }
             }
         }
         while (error);
-        return tablero;
+        return tablero;//sacamos el tablero como valor
     }
 
     /*
@@ -212,21 +212,20 @@ espacio solo para separar funciones
 espacio solo para separar funciones
 
      */
-    public static int disparobarco(String[][] tablero2, int[][][] tablero) {
-        int hundido;
-        int win;
+    public static int disparobarco(String[][] tablero2, int[][][] tablero) {//el turno del que dispara
+        boolean hundido;
         int turno = 0;
         int tablerocompleto1 = 5;
         int tablerocompleto2 = 5;
         int tablerocompleto3 = 5;
-        boolean victoria = false;
+        boolean win = false;
         Scanner sc = new Scanner(System.in);
-        while (!victoria) {
-            turno++;
-            win = 0;
+        while (!win) {// se seguira jugando hasta que gane
+            turno++;//se van contando los turnos
+            win = true;
             System.out.println("este es tu tablero:");
             System.out.print("    ");
-            for (int i = 0; i < tablero2[0].length; i++) {
+            for (int i = 0; i < tablero2[0].length; i++) {//mostramos el tablero
                 System.out.print(i + " ");
             }
             System.out.println();
@@ -245,38 +244,51 @@ espacio solo para separar funciones
             System.out.println("fila:");
             int fila = sc.nextInt();
             System.out.println("columna:");
-            int columna = sc.nextInt();
-            if (tablero[0][fila][columna] == 0) {
-                System.out.println("agua");
-                tablero2[fila][columna] = "O";
-            } else {
-                System.out.println("tocado");
-                tablero2[fila][columna] = "X";
-                for (int i = 0; i < 5; i++) {
-                    tablero[i][fila][columna] = 0;
-                }
-                for (int i = 0; i < 5; i++) {
-                    hundido = 0;
-                    for (int j = 0; j < 10; j++) {
-                        for (int k = 0; k < 10; k++) {
-                            if (i == tablerocompleto1 || i == tablerocompleto2 || i == tablerocompleto3) continue;
-                            ;
-                            hundido += tablero[i][k][j];
-                            win += tablero[0][k][j];
+            int columna = sc.nextInt();//coordenadas de disparo
+            if (tablero[0][fila][columna] < 0)  System.out.println("volviste a disparar en un sitio donde ya habias disparado");
+            else {
+                if (tablero[0][fila][columna] == 0) {//si no hay barcos significa que en array hay un "0" q representa el agua
+                    System.out.println("agua");
+                    tablero2[fila][columna] = "O";//ponemos en el tablero que ve el simbolo que elegimos para agua
+                } else {
+                    System.out.println("tocado");//si es cualquier otro numero significa q es un barco
+                    tablero2[fila][columna] = "X";//lo represento ene l tablero con una "X"
+                    for (int i = 0; i < 5; i++) {
+                        tablero[i][fila][columna] = -1;//ponemos -1 para indicar que ya disparamos ahí
+                    }
+                    for (int i = 1; i < 5; i++) {
+                        hundido = true;
+                        for (int j = 0; j < 10; j++) {
+                            for (int k = 0; k < 10; k++) {
+                                if (i == tablerocompleto1 || i == tablerocompleto2 || i == tablerocompleto3) continue;//nos saltamos las capas completas
+                                if (tablero[i][k][j]>0) hundido=false;
+                                //revisamos toda la capa a ver si hay algun valor >0, que serian los barcos, si no hay significa que esta hundido
+                                if (tablero[0][k][j]>0) win=false;
+                                //lo mismo pero con el 1er nivel del tablero que serian donde estan todos los abrcos, si no hay barcos es una victoria
+                            }
+                        }
+                        if (hundido) {//vamos indicando que capas estan completas para no volver a hacerlas y que nos digan hundido
+                            System.out.println("HUNDIDO");
+                            tablerocompleto1 = i;
+                            hundido=false;
+                        }
+                        if (hundido) {
+                            System.out.println("HUNDIDO");
+                            tablerocompleto2 = i;
+                            hundido=false;
+                        }
+                        if (hundido) {
+                            System.out.println("HUNDIDO");
+                            tablerocompleto3 = i;
                         }
                     }
-                    if (hundido == 0) {
-                        System.out.println("HUNDIDO");
-                        tablerocompleto1 = i;
+                    if (win) { //mensaje de victoria
+                        System.out.println("GANASTE");
+                        System.out.println("tardaste " + turno + " turnos");
                     }
-                }
-                if (win == 0) {
-                    victoria = true;
-                    System.out.println("GANASTE");
-                    System.out.println("tardaste " + turno + " turnos");
                 }
             }
         }
-        return turno;
+        return turno;//regresamos el numero de turnos que tardo el jugador
     }
 }
