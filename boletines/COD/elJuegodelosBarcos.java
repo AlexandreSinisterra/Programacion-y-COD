@@ -8,100 +8,104 @@ public class elJuegodelosBarcos {
         Scanner sc = new Scanner(System.in);
         System.out.println("empecemos el juego");
         System.out.println("nombre del jugador 1 en esta partida: ");
-        String nombre1= sc.next();
+        String nombre1 = sc.next();
         int turno1 = jugador();//jugador es la funcion con la que se lleva a cabo la partida
         System.out.println("siguiente juego");
         System.out.println("nombre del jugador 1 en esta partida: ");
-        String nombre2= sc.next();
+        String nombre2 = sc.next();
         int turno2 = jugador();
-        if (turno1==turno2) {//si los turnos son iguales significa un empate, no creo q tenga q comentar eso...
+        if (turno1 == turno2) {//si los turnos son iguales significa un empate, no creo q tenga q comentar eso...
             System.out.println("EMPATE");
-        }
-        else {
+        } else {
             int tdelGanador = (turno1 > turno2) ? turno2 : turno1;//se elige el turno mas pequeño como ganbador
             String ndelGanador = (turno1 > turno2) ? nombre1 : nombre2;//si se tardan mas en el primer juego, quiere decir que el jugador 1 (el que coloca los barcos), gana
-            int diferenciaTurnos= turno1-tdelGanador+turno2-tdelGanador;//matematicas simples, es literalmente--> z=x-x+x-y --> z=x-y ("y" siendo la menos, asi me ahorro volver a comparar cual es mas pequeño)
-            System.out.println("el ganador es " + ndelGanador + " con " + tdelGanador + " turnos, una diferencia de "+diferenciaTurnos+" turnos.");
+            int diferenciaTurnos = turno1 - tdelGanador + turno2 - tdelGanador;//matematicas simples, es literalmente--> z=x-x+x-y --> z=x-y ("y" siendo la menos, asi me ahorro volver a comparar cual es mas pequeño)
+            System.out.println("el ganador es " + ndelGanador + " con " + tdelGanador + " turnos, una diferencia de " + diferenciaTurnos + " turnos.");
         }
     }
-        public static int jugador (){
-            Scanner sc = new Scanner(System.in);//hice un
-            int[][][] tablero = new int[5][10][10];
-            for (int i = 0; i < 5; i++)
-                for (int j = 0; j < 10; j++)
-                    for (int k = 0; k < 10; k++)
-                        tablero[i][j][k] = 0;
-            System.out.println("jugador 1, su turno");
-            int tipobarco;
-            int NB4 = 1;
-            int NB3 = 1;
-            int NB2 = 2;//cantidad de barcos
-            int vuelta = 0;
-            do {
-                System.out.println("tienes " + NB4 + " barco de 1x4, " + NB3 + " de 1x3 y " + NB2 + " de 1x2");
-                System.out.println("1-colocar el barco 1x2");
-                System.out.println("2-colocar el barco 1x3");
-                System.out.println("3-colocar el barco 1x4");
-                tipobarco = sc.nextInt();
-                switch (tipobarco) {//vamos restando los tipos de barcos segun los coloquemos
-                    case 1:
-                        NB2--;
-                        break;
-                    case 2:
-                        NB3--;
-                        break;
-                    case 3:
-                        NB4--;
-                        break;
-                    default:
-                        System.out.println("valor no permitido, vuelve a introducir");
-                        continue;
-                }
-                // ahora vamos por si ponen barcos de más, osea que el valor de los barcos sea <0
-                if (NB2 < 0) {
-                    NB2 = 0;
-                    System.out.println("ya colocaste el máximo numero de barcos tipo 1x2");
-                    continue;
-                }
-                if (NB3 < 0) {
-                    NB3 = 0;
-                    System.out.println("ya colocaste el máximo numero de barcos tipo 1x3");
-                    continue;
-                }
-                if (NB4 < 0) {
-                    NB4 = 0;
-                    System.out.println("ya colocaste el máximo numero de barcos tipo 1x4");
-                    continue;
-                }
-                vuelta++;
-                meterbarco(tablero, tipobarco + 1, vuelta);
+
+    public static int jugador() {
+        Scanner sc = new Scanner(System.in);//hice un
+        int[][][] tablero = new int[5][10][10];//creacion de un array tridimensional, seria 5 de profundo y un 10x10
+        for (int i = 0; i < 5; i++)
+                /*lo hago con un triple array ya que en cada plano sin contar con el primero que seria el tablero, colocaria un barco x plano
+                así cuando en un plano esté lleno de 0 significa que no hay barco, y en el tablero significaría la victoria
+            */
+            for (int j = 0; j < 10; j++)
+                for (int k = 0; k < 10; k++)
+                    tablero[i][j][k] = 0;//lo recorremos y lo rellenamos de 0 que seria nuestra agua
+        System.out.println("jugador 1, su turno");
+        int tipobarco;
+        int NB4 = 1;
+        int NB3 = 1;
+        int NB2 = 2;//cantidad de barcos
+        int vuelta = 0;// turnos de colocación para ir poniendolo en planos
+        do {
+            System.out.println("tienes " + NB4 + " barco de 1x4, " + NB3 + " de 1x3 y " + NB2 + " de 1x2");
+            System.out.println("1-colocar el barco 1x2");
+            System.out.println("2-colocar el barco 1x3");
+            System.out.println("3-colocar el barco 1x4");
+            tipobarco = sc.nextInt();//seleccion del tipo de barco
+            switch (tipobarco) {//vamos restando los tipos de barcos segun los coloquemos
+                case 1:
+                    NB2--;
+                    break;
+                case 2:
+                    NB3--;
+                    break;
+                case 3:
+                    NB4--;
+                    break;
+                default:
+                    System.out.println("valor no permitido, vuelve a introducir");
+                    continue;//vuelve a empezar el bucle
             }
-            while (NB4 > 0 || NB3 > 0 || NB2 > 0);//se repite hasta que los barcos se acaben
-            for (int i = 0; i < tablero[0].length; i++) {
-                System.out.print(i + " ");
+            // ahora vamos por si ponen barcos de más, osea que el valor de los barcos sea <0
+            if (NB2 < 0) {
+                NB2 = 0;//ya que ahora seria un -1 lo igualo a 0 para volver a dale su valor
+                System.out.println("ya colocaste el máximo numero de barcos tipo 1x2");
+                continue;
             }
-            System.out.println();
-            System.out.println("  +---------------------+");
-            int filas = 0;
-            for (int[] ints : tablero[0]) {
-                System.out.print(filas + " | ");
-                for (int anInt : ints) {
-                    System.out.print(anInt + " ");
-                }
-                System.out.println("|");
-                filas++;
+            if (NB3 < 0) {
+                NB3 = 0;
+                System.out.println("ya colocaste el máximo numero de barcos tipo 1x3");
+                continue;
             }
-            System.out.println("  +---------------------+");
-            System.out.println("jugador 2, su turno");
-            System.out.println("a ver en cuantos turnos terminas con todos los barcos");
-            String[][] tablero2 = new String[10][10];
-            for (int i = 0; i < tablero2.length; i++) {
-                for (int j = 0; j < tablero2[i].length; j++) {
-                    tablero2[i][j] = "?";
-                }
+            if (NB4 < 0) {
+                NB4 = 0;
+                System.out.println("ya colocaste el máximo numero de barcos tipo 1x4");
+                continue;
             }
-            return disparobarco(tablero2, tablero);
+            vuelta++;//contador de vueltas, osea,barcos colocados
+            meterbarco(tablero, tipobarco + 1, vuelta);// +1 ya que las opciones eran 1,2,3 para barcos de tamaño 2,3,4
         }
+        while (NB4 > 0 || NB3 > 0 || NB2 > 0);//se repite hasta que los barcos se acaben
+        for (int i = 0; i < tablero[0].length; i++) {//decoracion del tablero
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        System.out.println("  +---------------------+");
+        int filas = 0;
+        for (int[] ints : tablero[0]) {
+            System.out.print(filas + " | ");
+            for (int anInt : ints) {
+                System.out.print(anInt + " ");
+            }
+            System.out.println("|");
+            filas++;
+        }
+        System.out.println("  +---------------------+");
+        System.out.println("jugador 2, su turno");
+        System.out.println("a ver en cuantos turnos terminas con todos los barcos");
+        String[][] tablero2 = new String[10][10];//tablero del que dispara
+        for (int i = 0; i < tablero2.length; i++) {
+            for (int j = 0; j < tablero2[i].length; j++) {
+                tablero2[i][j] = "?";
+            }
+        }
+        return disparobarco(tablero2, tablero);
+    }
+
     /*
 
 espacio solo para separar funciones
@@ -202,6 +206,7 @@ espacio solo para separar funciones
         while (error);
         return tablero;
     }
+
     /*
 
 espacio solo para separar funciones
@@ -211,14 +216,14 @@ espacio solo para separar funciones
         int hundido;
         int win;
         int turno = 0;
-        int tablerocompleto1=5;
-        int tablerocompleto2=5;
-        int tablerocompleto3=5;
+        int tablerocompleto1 = 5;
+        int tablerocompleto2 = 5;
+        int tablerocompleto3 = 5;
         boolean victoria = false;
         Scanner sc = new Scanner(System.in);
         while (!victoria) {
             turno++;
-            win=0;
+            win = 0;
             System.out.println("este es tu tablero:");
             System.out.print("    ");
             for (int i = 0; i < tablero2[0].length; i++) {
@@ -250,24 +255,25 @@ espacio solo para separar funciones
                 for (int i = 0; i < 5; i++) {
                     tablero[i][fila][columna] = 0;
                 }
-                for (int i = 0; i < tablero.length; i++) {
+                for (int i = 0; i < 5; i++) {
                     hundido = 0;
-                    for (int j = 0; j < tablero[i].length; j++) {
-                        for (int k = 0; k < tablero[i][j].length; k++) {
-                            if (k==tablerocompleto1||k==tablerocompleto2||k==tablerocompleto3) continue;;
-                            hundido += tablero[k][i][j];
-                            win += tablero[0][i][j];
-                            if (hundido == 0) {System.out.println("HUNDIDO");
-                                tablerocompleto1=k;
-                            }
-                            if (win == 0) {
-                                victoria = true;
-                                System.out.println("GANASTE");
-                                System.out.println("tardaste " + turno + " turnos");
-                                break;
-                            }
+                    for (int j = 0; j < 10; j++) {
+                        for (int k = 0; k < 10; k++) {
+                            if (i == tablerocompleto1 || i == tablerocompleto2 || i == tablerocompleto3) continue;
+                            ;
+                            hundido += tablero[i][k][j];
+                            win += tablero[0][k][j];
                         }
                     }
+                    if (hundido == 0) {
+                        System.out.println("HUNDIDO");
+                        tablerocompleto1 = i;
+                    }
+                }
+                if (win == 0) {
+                    victoria = true;
+                    System.out.println("GANASTE");
+                    System.out.println("tardaste " + turno + " turnos");
                 }
             }
         }
