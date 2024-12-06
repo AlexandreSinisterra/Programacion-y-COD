@@ -18,15 +18,18 @@ public class elJuegodelosBarcos {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         };
-        System.out.println("jugador 1, su turno.");
-        int tipobarco; int NB4=1; int NB3=1; int NB2=2;//cantidad de barcos
+        System.out.println("jugador 1, su turno");
+        int tipobarco;
+        int NB4 = 1;
+        int NB3 = 1;
+        int NB2 = 2;//cantidad de barcos
         do {
-            System.out.println("tienes "+NB4+" barco de 1x4, "+NB3+" de 1x3 y "+NB2+" de 1x2");
+            System.out.println("tienes " + NB4 + " barco de 1x4, " + NB3 + " de 1x3 y " + NB2 + " de 1x2");
             System.out.println("1-colocar el barco 1x2");
             System.out.println("2-colocar el barco 1x3");
             System.out.println("3-colocar el barco 1x4");
             tipobarco = sc.nextInt();
-            switch (tipobarco){//vamos restando los tipos de barcos segun los coloquemos
+            switch (tipobarco) {//vamos restando los tipos de barcos segun los coloquemos
                 case 1:
                     NB2--;
                     break;
@@ -41,34 +44,50 @@ public class elJuegodelosBarcos {
                     continue;
             }
             // ahora vamos por si ponen barcos de más, osea que el valor de los barcos sea <0
-            if (NB2<0){ NB2=0;
+            if (NB2 < 0) {
+                NB2 = 0;
                 System.out.println("ya colocaste el máximo numero de barcos tipo 1x2");
                 continue;
             }
-            if (NB3<0){ NB3=0;
+            if (NB3 < 0) {
+                NB3 = 0;
                 System.out.println("ya colocaste el máximo numero de barcos tipo 1x3");
                 continue;
             }
-            if (NB4<0){ NB4=0;
+            if (NB4 < 0) {
+                NB4 = 0;
                 System.out.println("ya colocaste el máximo numero de barcos tipo 1x4");
                 continue;
             }
-            meterbarco(tablero,tipobarco+1);
+            meterbarco(tablero, tipobarco + 1);
         }
-        while(NB4>0||NB3>0||NB2>0);//se repite hasta que los barcos se acaben
-        for (int[] ints : tablero) {//simplemente para mostrar el tablero
-            for (int anInt : ints) {
-                System.out.print(anInt + " ");
-            }
-            System.out.println();
+        while (NB4 > 0 || NB3 > 0 || NB2 > 0);//se repite hasta que los barcos se acaben
+        System.out.println("jugador 2, su turno");
+        System.out.println("a ver en cuantos turnos terminas con todos los barcos");
+        NB4=4;NB3=3;NB2 > 0
+        while (NB4 > 0 || NB3 > 0 || NB2 > 0) {
+            String[][] tablero2 = {//nuestro hermoso tablero vacío
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+            };
+            disparobarco(tablero2, tablero);
         }
     }
+
     /*
 
 espacio solo para separar funciones
 
      */
-    public static int[][] meterbarco(int [][] tablero, int tamaño_barco){
+    public static int[][] meterbarco(int[][] tablero, int tamaño_barco) {
         Scanner sc = new Scanner(System.in);
         int tamaño, tamaño_inclinado, guardar_columna1;
         boolean error;
@@ -80,9 +99,9 @@ espacio solo para separar funciones
         }
         System.out.println();
         System.out.println("  +---------------------+");
-        int filas=0;
+        int filas = 0;
         for (int[] ints : tablero) {
-            System.out.print(filas+" | ");
+            System.out.print(filas + " | ");
             for (int anInt : ints) {
                 System.out.print(anInt + " ");
             }
@@ -117,10 +136,10 @@ espacio solo para separar funciones
                 columna2 = columna1;
                 columna1 = cambio;
             }
-            tamaño_inclinado=fila2-fila1+1;
-            tamaño = (fila2 - fila1 + columna2 - columna1)+1;
+            tamaño_inclinado = fila2 - fila1 + 1;
+            tamaño = (fila2 - fila1 + columna2 - columna1) + 1;
 
-            if ((tamaño != tamaño_barco)&&(tamaño_inclinado!=tamaño_barco)) {
+            if ((tamaño != tamaño_barco) && (tamaño_inclinado != tamaño_barco)) {
                 error = true;//error de tamaño de barco
                 System.out.println("las coordenadas tienen un tamaño diferente al barco.");
                 System.out.println("intentelo de nuevo");
@@ -135,7 +154,8 @@ espacio solo para separar funciones
                         }
                     }
                 }
-                if (error) continue;;
+                if (error) continue;
+                ;
                 for (int i = fila1; i <= fila2; i++) {
                     for (int j = columna1; j <= columna2; j++) {
                         tablero[i][j] = tamaño_barco;
@@ -158,7 +178,40 @@ espacio solo para separar funciones
                 }
             }
         }
-        while(error);
+        while (error);
         return tablero;
+    }
+
+    /*
+
+espacio solo para separar funciones
+
+     */
+    public static String[][] disparobarco(String[][] tablero2, int[][] tablero) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("este es tu tablero:");
+        System.out.print("    ");
+        for (int i = 0; i < tablero2[0].length; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        System.out.println("  +---------------------+");
+        int filas = 0;
+        for (String[] ints : tablero2) {
+            System.out.print(filas + " | ");
+            for (String anInt : ints) {
+                System.out.print(anInt + " ");
+            }
+            System.out.println("|");
+            filas++;
+        }
+        System.out.println("  +---------------------+");
+        System.out.println("seleccione las coordenadas del disparo");
+        System.out.println("fila:");
+        int fila = sc.nextInt();
+        System.out.println("columna:");
+        int columna = sc.nextInt();
+        if (tablero[fila][columna]==0)
+        return tablero2;
     }
 }
