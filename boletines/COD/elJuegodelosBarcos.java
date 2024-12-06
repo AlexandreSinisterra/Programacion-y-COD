@@ -159,5 +159,5 @@ espacio solo para separar funciones
         }
         while(error);
         return tablero;
-    }
+    }//a
 }
