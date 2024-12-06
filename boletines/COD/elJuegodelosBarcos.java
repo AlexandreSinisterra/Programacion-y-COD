@@ -60,7 +60,6 @@ public class elJuegodelosBarcos {
             }
             System.out.println();
         }
-        sc.close();
     }
     public static int[][] meterbarco(int [][] tablero, int tamaño_barco){
         Scanner sc = new Scanner(System.in);
@@ -117,9 +116,13 @@ public class elJuegodelosBarcos {
                     }
                 }
             }
+            for (int i = fila1; i <= fila2; i++) {
+                for (int j = columna1; j <= columna2; j++) {
+                    tablero[i][j]=tamaño_barco;
+                }
+            }
         }
         while(error);
-
         return tablero;
     }
 }
