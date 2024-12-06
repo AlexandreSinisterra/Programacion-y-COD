@@ -263,7 +263,7 @@ espacio solo para separar funciones
                     for (int i = 0; i < 5; i++) {
                         tablero[i][fila][columna] = -1;//ponemos -1 para indicar que ya disparamos ahí
                     }
-                    for (int i = 1; i < 5; i++) {
+                    for (int i = 1; i < 5; i++) {// se salta la primera capa ya que es el tablero y no nos interesa
                         hundido = true;
                         for (int j = 0; j < 10; j++) {
                             for (int k = 0; k < 10; k++) {
@@ -277,7 +277,7 @@ espacio solo para separar funciones
                         if (hundido&&!(tablerocompleto1boolean)) {//vamos indicando que capas estan completas para no volver a hacerlas y que nos digan hundido
                             System.out.println("HUNDIDO, 3 barcos restantes");
                             tablerocompleto1 = i;
-                            tablerocompleto1boolean=true;
+                            tablerocompleto1boolean=true;//ponemos estos valores para que no nos vuelva a hacer este if, asi no meteremos otro valor en el tablero completo ni se repetira el mensaje
                             hundido=false;
                         }
                         if (hundido&&!(tablerocompleto2boolean)) {
