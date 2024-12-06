@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class elJuegodelosBarcos {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean segundobarco=false;
+        boolean segundobarco = false;
         int[][][] tablero = {{//nuestro hermoso tablero vacío
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -19,49 +19,49 @@ public class elJuegodelosBarcos {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         },
-        {//nuestro hermoso tablero vacío
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        },
-        {//nuestro hermoso tablero vacío
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        },
-        {//nuestro hermoso tablero vacío
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        }
+                {//nuestro hermoso tablero vacío
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                },
+                {//nuestro hermoso tablero vacío
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                },
+                {//nuestro hermoso tablero vacío
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                }
         };
         System.out.println("jugador 1, su turno");
         int tipobarco;
         int NB4 = 1;
         int NB3 = 1;
         int NB2 = 2;//cantidad de barcos
-        int vuelta=0;
+        int vuelta = 0;
         do {
             System.out.println("tienes " + NB4 + " barco de 1x4, " + NB3 + " de 1x3 y " + NB2 + " de 1x2");
             System.out.println("1-colocar el barco 1x2");
@@ -99,7 +99,7 @@ public class elJuegodelosBarcos {
                 continue;
             }
             vuelta++;
-            meterbarco(tablero,tipobarco+1, vuelta);
+            meterbarco(tablero, tipobarco + 1, vuelta);
         }
         while (NB4 > 0 || NB3 > 0 || NB2 > 0);//se repite hasta que los barcos se acaben
         for (int i = 0; i < tablero[0].length; i++) {
@@ -119,25 +119,21 @@ public class elJuegodelosBarcos {
         System.out.println("  +---------------------+");
         System.out.println("jugador 2, su turno");
         System.out.println("a ver en cuantos turnos terminas con todos los barcos");
-        NB4=1;
-        NB3=1;
-        NB2=2;
-        while (NB4 > 0 || NB3 > 0 || NB2 > 0) {
-            String[][] tablero2 = {//nuestro hermoso tablero vacío
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-                    {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
-            };
-            disparobarco(tablero2, tablero);
-        }
+        String[][] tablero2 = {//nuestro hermoso tablero vacío
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+                {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
+        };
+        disparobarco(tablero2, tablero);
     }
+
     /*
 
 espacio solo para separar funciones
@@ -147,7 +143,7 @@ espacio solo para separar funciones
         Scanner sc = new Scanner(System.in);
         int tamaño, tamaño_inclinado, guardar_columna1;
         boolean error;
-        int cambio, fila1, fila2, columna1,columna2;
+        int cambio, fila1, fila2, columna1, columna2;
         System.out.println("este es tu tablero:");
         System.out.print("    ");
         for (int i = 0; i < tablero[0].length; i++) {
@@ -240,44 +236,67 @@ espacio solo para separar funciones
     }
 
 
-
     /*
 
 espacio solo para separar funciones
 
      */
-    public static String[][] disparobarco(String[][] tablero2, int[][][] tablero) {
+    public static void disparobarco(String[][] tablero2, int[][][] tablero) {
+        int hundido;
+        int win;
+        int turno = 0;
+        boolean victoria = false;
         Scanner sc = new Scanner(System.in);
-        System.out.println("este es tu tablero:");
-        System.out.print("    ");
-        for (int i = 0; i < tablero2[0].length; i++) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-        System.out.println("  +---------------------+");
-        int filas = 0;
-        for (String[] ints : tablero2) {
-            System.out.print(filas + " | ");
-            for (String anInt : ints) {
-                System.out.print(anInt + " ");
+        while (!victoria) {
+            turno++;
+            win=0;
+            System.out.println("este es tu tablero:");
+            System.out.print("    ");
+            for (int i = 0; i < tablero2[0].length; i++) {
+                System.out.print(i + " ");
             }
-            System.out.println("|");
-            filas++;
+            System.out.println();
+            System.out.println("  +---------------------+");
+            int filas = 0;
+            for (String[] ints : tablero2) {
+                System.out.print(filas + " | ");
+                for (String anInt : ints) {
+                    System.out.print(anInt + " ");
+                }
+                System.out.println("|");
+                filas++;
+            }
+            System.out.println("  +---------------------+");
+            System.out.println("seleccione las coordenadas del disparo");
+            System.out.println("fila:");
+            int fila = sc.nextInt();
+            System.out.println("columna:");
+            int columna = sc.nextInt();
+            if (tablero[fila][columna][0] == 0) {
+                System.out.println("agua");
+                tablero2[fila][columna] = "O";
+            } else {
+                System.out.println("tocado");
+                tablero2[fila][columna] = "X";
+                for (int i = 1; i < 5; i++) {
+                    tablero[fila][columna][i] = 0;
+                }
+                for (int i = 0; i < tablero2.length; i++) {
+                    hundido = 0;
+                    for (int j = 0; j < tablero[i].length; j++) {
+                        for (int k = 0; k < tablero[i][j].length; k++) {
+                            hundido += tablero[i][j][k];
+                            win += tablero[i][j][0];
+                            if (win == 0) {
+                                victoria = true;
+                                System.out.println("GANASTE");
+                                System.out.println("tardaste " + turno + " turnos");
+                            }
+                            if (hundido == 0) System.out.println("HUNDIDO");
+                        }
+                    }
+                }
+            }
         }
-        System.out.println("  +---------------------+");
-        System.out.println("seleccione las coordenadas del disparo");
-        System.out.println("fila:");
-        int fila = sc.nextInt();
-        System.out.println("columna:");
-        int columna = sc.nextInt();
-        if (tablero[fila][columna][0]==0){
-            System.out.println("agua");
-            tablero2[fila][columna]="O";
-        }
-        else {
-            System.out.println("tocado");
-            tablero2[fila][columna]="X";
-        }
-        return tablero2;
     }
 }
