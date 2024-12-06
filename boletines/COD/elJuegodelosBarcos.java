@@ -150,7 +150,7 @@ espacio solo para separar funciones
                     }
                     columna1++;
                 }
-                if (error) continue;;
+                if (error) continue;
                 columna1 = guardar_columna1;//me gustaria mas utilizar en el bucle de abajo esta variable, pero lo pongo asi xq queda mas claro
                 for (int i = fila1; i <= fila2; i++) {
                     tablero[i][columna1] = tamaño_barco;
