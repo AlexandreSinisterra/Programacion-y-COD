@@ -97,7 +97,7 @@ public class elJuegodelosBarcos {
                     {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
                     {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
             };
-            //disparobarco(tablero2, tablero);
+            disparobarco(tablero2, tablero);
         }
     }
     /*
@@ -245,7 +245,7 @@ espacio solo para separar funciones
         int fila = sc.nextInt();
         System.out.println("columna:");
         int columna = sc.nextInt();
-        if (tablero[fila][columna]==0)
+        if (tablero[fila][columna]==0) System.out.println("agua");
         return tablero2;
     }
 /*
@@ -255,7 +255,7 @@ espacio solo para separar funciones
      */
 
     public static String barco3(int fila1, int fila2, int columna1, int columna2){
-        String fila1S,fila2S,columna1S,columna2S;
+        String fila1S="",fila2S="",columna1S="",columna2S="";
         switch (fila1){
             case 0: fila1S="q"; break;
             case 1: fila1S="w"; break;
@@ -313,7 +313,7 @@ espacio solo para separar funciones
      */
 
     public static String barco21(int fila1, int fila2, int columna1, int columna2){
-        String fila1S,fila2S,columna1S,columna2S;
+        String fila1S="",fila2S="",columna1S="",columna2S="";
         switch (fila1){
             case 0: fila1S="q"; break;
             case 1: fila1S="w"; break;
@@ -371,7 +371,7 @@ espacio solo para separar funciones
      */
 
     public static String barco22(int fila1, int fila2, int columna1, int columna2){
-        String fila1S,fila2S,columna1S,columna2S;
+        String fila1S="",fila2S="",columna1S="",columna2S="";
         switch (fila1){
             case 0: fila1S="q"; break;
             case 1: fila1S="w"; break;
@@ -429,7 +429,7 @@ espacio solo para separar funciones
      */
 
     public static String barco4(int fila1, int fila2, int columna1, int columna2){
-        String fila1S,fila2S,columna1S,columna2S;
+        String fila1S="",fila2S="",columna1S="",columna2S="";
         switch (fila1){
             case 0: fila1S="q"; break;
             case 1: fila1S="w"; break;
