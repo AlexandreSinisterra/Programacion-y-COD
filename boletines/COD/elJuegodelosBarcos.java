@@ -279,7 +279,6 @@ espacio solo para separar funciones
                             }
                             if (!hundido&&!win) break;//las 2 se tienen que cumplir, porque si lo pongo con un or, no funcionaria lo de hundido
                         }
-                        if (!hundido&&!win) break;
                         if (hundido&&!(tablerocompleto1boolean)) {//vamos indicando que capas estan completas para no volver a hacerlas y que nos digan hundido
                             System.out.println("HUNDIDO, 3 barcos restantes");
                             tablerocompleto1 = i;
