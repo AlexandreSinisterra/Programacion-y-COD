@@ -59,12 +59,24 @@ public class elJuegodelosBarcos {
                 System.out.println("ya colocaste el máximo numero de barcos tipo 1x4");
                 continue;
             }
-            meterbarco(tablero, tipobarco + 1);
+            switch (tipobarco) {//vamos restando los tipos de barcos segun los coloquemos
+                case 1:
+                    meterbarco(tablero, tipobarco + 1, NB2);
+                    break;
+                case 2:
+                    meterbarco(tablero, tipobarco + 1, NB3);
+                    break;
+                case 3:
+                    meterbarco(tablero, tipobarco + 1, NB4);
+                    break;
+            }
         }
         while (NB4 > 0 || NB3 > 0 || NB2 > 0);//se repite hasta que los barcos se acaben
         System.out.println("jugador 2, su turno");
         System.out.println("a ver en cuantos turnos terminas con todos los barcos");
-        NB4=4;NB3=3;NB2 > 0
+        NB4=1;
+        NB3=1;
+        NB2=2;
         while (NB4 > 0 || NB3 > 0 || NB2 > 0) {
             String[][] tablero2 = {//nuestro hermoso tablero vacío
                     {"?", "?", "?", "?", "?", "?", "?", "?", "?", "?"},
@@ -87,7 +99,7 @@ public class elJuegodelosBarcos {
 espacio solo para separar funciones
 
      */
-    public static int[][] meterbarco(int[][] tablero, int tamaño_barco) {
+    public static int[][] meterbarco(int[][] tablero, int tamaño_barco, int barco) {
         Scanner sc = new Scanner(System.in);
         int tamaño, tamaño_inclinado, guardar_columna1;
         boolean error;
@@ -179,6 +191,7 @@ espacio solo para separar funciones
             }
         }
         while (error);
+        switch (barco)
         return tablero;
     }
 
