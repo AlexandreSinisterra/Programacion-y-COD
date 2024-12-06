@@ -51,7 +51,7 @@ public class elJuegodelosBarcos {
                 System.out.println("ya colocaste el máximo numero de barcos tipo 1x4");
                 continue;
             }
-            meterbarco(tablero,tipobarco);
+            meterbarco(tablero,tipobarco+1);
         }
         while(NB4>0||NB3>0||NB2>0);//se repite hasta que los barcos se acaben
         for (int[] ints : tablero) {//simplemente para mostrar el tablero
@@ -61,9 +61,13 @@ public class elJuegodelosBarcos {
             System.out.println();
         }
     }
+    /*
+
+
+     */
     public static int[][] meterbarco(int [][] tablero, int tamaño_barco){
         Scanner sc = new Scanner(System.in);
-        int tamaño;
+        int tamaño, tamaño_inclinado, guardar_columna1;
         boolean error;
         int cambio;
         System.out.println("este es tu tablero:");
@@ -75,7 +79,7 @@ public class elJuegodelosBarcos {
         }
         System.out.println("donde quieres colocar tu barco, pon las coordenadas de las 2 puntas del barco, solo horizontal y vertical se puede colocar");
         do {
-            error=false;
+            error = false;
             System.out.println("fila:");
             int fila1 = sc.nextInt();
             System.out.println("columna:");
@@ -85,8 +89,8 @@ public class elJuegodelosBarcos {
             int fila2 = sc.nextInt();
             System.out.println("columna:");
             int columna2 = sc.nextInt();
-            if (fila1<0||fila1>9||fila2<0||fila2>9||columna1<0||columna1>9||columna2<0||columna2>9){
-                error=true;//error de fuera de tablero
+            if (fila1 < 0 || fila1 > 9 || fila2 < 0 || fila2 > 9 || columna1 < 0 || columna1 > 9 || columna2 < 0 || columna2 > 9) {
+                error = true;//error de fuera de tablero
                 System.out.println("casilla inválida, tiene que estar dentro del tablero, los valores son del 0 al 9.");
                 continue;
             }
@@ -100,25 +104,46 @@ public class elJuegodelosBarcos {
                 columna2 = columna1;
                 columna1 = cambio;
             }
-            tamaño=fila2-fila1+columna2-columna1;
-            if (tamaño!=tamaño_barco){
-                error=true;//error de tamaño de barco
+            tamaño_inclinado=fila2-fila1+1;
+            tamaño = (fila2 - fila1 + columna2 - columna1)+1;
+
+            if ((tamaño != tamaño_barco)&&(tamaño_inclinado!=tamaño_barco)) {
+                error = true;//error de tamaño de barco
                 System.out.println("las coordenadas tienen un tamaño diferente al barco.");
                 System.out.println("intentelo de nuevo");
                 continue;
             }
-            for (int i = fila1; i <= fila2; i++) {
-                for (int j = columna1; j <= columna2; j++) {
-                    if (tablero[i][j] != 0) {
-                        error = true;//error de casilla ocupada
-                        System.out.println("Se estaba construyendo el barco pero choco con otro barco en las coordenadas: "+i+" "+j);
-                        System.out.println("por favor, introduzca otras coordenadas");
+            if (fila1 == fila2 || columna2 == columna1) {
+                for (int i = fila1; i <= fila2; i++) {
+                    for (int j = columna1; j <= columna2; j++) {
+                        if (tablero[i][j] != 0) {
+                            error = true;//error de casilla ocupada
+                            System.out.println("Se estaba construyendo el barco pero choco con otro barco en las coordenadas: " + i + " " + j);
+                            System.out.println("por favor, introduzca otras coordenadas");
+                        }
                     }
                 }
-            }
-            for (int i = fila1; i <= fila2; i++) {
-                for (int j = columna1; j <= columna2; j++) {
-                    tablero[i][j]=tamaño_barco;
+                if (error) continue;;
+                for (int i = fila1; i <= fila2; i++) {
+                    for (int j = columna1; j <= columna2; j++) {
+                        tablero[i][j] = tamaño_barco;
+                    }
+                }
+            } else {
+                guardar_columna1 = columna1;
+                for (int i = fila1; i <= fila2; i++) {
+                    if (tablero[i][columna1] != 0) {
+                        error = true;//error de casilla ocupada
+                        System.out.println("Se estaba construyendo el barco pero choco con otro barco en las coordenadas: " + i + " " + columna1);
+                        System.out.println("por favor, introduzca otras coordenadas");
+                    }
+                    columna1++;
+                }
+                if (error) continue;;
+                columna1 = guardar_columna1;//me gustaria mas utilizar en el bucle de abajo esta variable, pero lo pongo asi xq queda mas claro
+                for (int i = fila1; i <= fila2; i++) {
+                    tablero[i][columna1] = tamaño_barco;
+                    columna1++;
                 }
             }
         }
