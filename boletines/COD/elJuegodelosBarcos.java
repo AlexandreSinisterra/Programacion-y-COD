@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class elJuegodelosBarcos {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean segundobarco = false;
         int[][][] tablero = {{//nuestro hermoso tablero vacío
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -18,7 +17,19 @@ public class elJuegodelosBarcos {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        },
+                },
+                {//nuestro hermoso tablero vacío
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                },
                 {//nuestro hermoso tablero vacío
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -200,7 +211,7 @@ espacio solo para separar funciones
             if (fila1 == fila2 || columna2 == columna1) {
                 for (int i = fila1; i <= fila2; i++) {
                     for (int j = columna1; j <= columna2; j++) {
-                        if (tablero[i][j][0] != 0) {
+                        if (tablero[0][i][j] != 0) {
                             error = true;//error de casilla ocupada
                             System.out.println("Se estaba construyendo el barco pero choco con otro barco en las coordenadas: " + i + " " + j);
                         }
@@ -209,14 +220,14 @@ espacio solo para separar funciones
                 if (error) continue;
                 for (int i = fila1; i <= fila2; i++) {
                     for (int j = columna1; j <= columna2; j++) {
-                        tablero[i][j][0] = tamaño_barco;
-                        tablero[i][j][vuelta] = tamaño_barco;
+                        tablero[0][i][j] = tamaño_barco;
+                        tablero[vuelta][i][j] = tamaño_barco;
                     }
                 }
             } else {
                 guardar_columna1 = columna1;
                 for (int i = fila1; i <= fila2; i++) {
-                    if (tablero[i][columna1][0] != 0) {
+                    if (tablero[0][i][columna1] != 0) {
                         error = true;//error de casilla ocupada
                         System.out.println("Se estaba construyendo el barco pero choco con otro barco en las coordenadas: " + i + " " + columna1);
                     }
@@ -225,8 +236,8 @@ espacio solo para separar funciones
                 if (error) continue;
                 columna1 = guardar_columna1;//me gustaria mas utilizar en el bucle de abajo esta variable, pero lo pongo asi xq queda mas claro
                 for (int i = fila1; i <= fila2; i++) {
-                    tablero[i][columna1][0] = tamaño_barco;
-                    tablero[i][columna1][vuelta] = tamaño_barco;
+                    tablero[0][i][columna1] = tamaño_barco;
+                    tablero[vuelta][i][columna1] = tamaño_barco;
                     columna1++;
                 }
             }
@@ -245,6 +256,9 @@ espacio solo para separar funciones
         int hundido;
         int win;
         int turno = 0;
+        int tablerocompleto1=5;
+        int tablerocompleto2=5;
+        int tablerocompleto3=5;
         boolean victoria = false;
         Scanner sc = new Scanner(System.in);
         while (!victoria) {
@@ -272,27 +286,31 @@ espacio solo para separar funciones
             int fila = sc.nextInt();
             System.out.println("columna:");
             int columna = sc.nextInt();
-            if (tablero[fila][columna][0] == 0) {
+            if (tablero[0][fila][columna] == 0) {
                 System.out.println("agua");
                 tablero2[fila][columna] = "O";
             } else {
                 System.out.println("tocado");
                 tablero2[fila][columna] = "X";
-                for (int i = 1; i < 5; i++) {
-                    tablero[fila][columna][i] = 0;
+                for (int i = 0; i < 5; i++) {
+                    tablero[i][fila][columna] = 0;
                 }
-                for (int i = 0; i < tablero2.length; i++) {
+                for (int i = 0; i < tablero.length; i++) {
                     hundido = 0;
                     for (int j = 0; j < tablero[i].length; j++) {
                         for (int k = 0; k < tablero[i][j].length; k++) {
-                            hundido += tablero[i][j][k];
-                            win += tablero[i][j][0];
+                            if (k==tablerocompleto1||k==tablerocompleto2||k==tablerocompleto3) continue;;
+                            hundido += tablero[k][i][j];
+                            win += tablero[0][i][j];
+                            if (hundido == 0) {System.out.println("HUNDIDO");
+                                tablerocompleto1=k;
+                            }
                             if (win == 0) {
                                 victoria = true;
                                 System.out.println("GANASTE");
                                 System.out.println("tardaste " + turno + " turnos");
+                                break;
                             }
-                            if (hundido == 0) System.out.println("HUNDIDO");
                         }
                     }
                 }
