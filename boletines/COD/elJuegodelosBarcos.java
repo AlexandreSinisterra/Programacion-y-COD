@@ -280,13 +280,13 @@ espacio solo para separar funciones
                             tablerocompleto1boolean=true;//ponemos estos valores para que no nos vuelva a hacer este if, asi no meteremos otro valor en el tablero completo ni se repetira el mensaje
                             hundido=false;
                         }
-                        if (hundido&&!(tablerocompleto2boolean)) {
+                        if (hundido&&tablerocompleto1boolean) {
                             System.out.println("HUNDIDO, 2 barcos restantes");
                             tablerocompleto2 = i;
                             tablerocompleto2boolean=true;
                             hundido=false;
                         }
-                        if (hundido&&!(tablerocompleto3boolean)) {
+                        if (hundido&&tablerocompleto2boolean&&!(tablerocompleto3boolean)) {
                             System.out.println("HUNDIDO, 1 barco restante");
                             tablerocompleto3 = i;
                             tablerocompleto3boolean=true;
