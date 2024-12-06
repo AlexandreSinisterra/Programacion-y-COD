@@ -218,9 +218,9 @@ espacio solo para separar funciones
         boolean tablerocompleto2boolean=false;
         boolean tablerocompleto3boolean=false;
         int turno = 0;
-        int tablerocompleto1 = 5;
-        int tablerocompleto2 = 5;
-        int tablerocompleto3 = 5;
+        int tablerocompleto1 = -100;
+        int tablerocompleto2 = -100;
+        int tablerocompleto3 = -100;
         boolean win = false;
         Scanner sc = new Scanner(System.in);
         while (!win) {// se seguira jugando hasta que gane
@@ -236,6 +236,7 @@ espacio solo para separar funciones
             int filas = 0;
             for (String[] ints : tablero2) {
                 System.out.print(filas + " | ");
+
                 for (String anInt : ints) {
                     System.out.print(anInt + " ");
                 }
@@ -265,22 +266,27 @@ espacio solo para separar funciones
                     }
                     for (int i = 1; i < 5; i++) {// se salta la primera capa ya que es el tablero y no nos interesa
                         hundido = true;
+                        if (i == tablerocompleto1 || i == tablerocompleto2 || i == tablerocompleto3) continue;//nos saltamos las capas completas
                         for (int j = 0; j < 10; j++) {
                             for (int k = 0; k < 10; k++) {
-                                if (i == tablerocompleto1 || i == tablerocompleto2 || i == tablerocompleto3) continue;//nos saltamos las capas completas
-                                if (tablero[i][k][j]>0) hundido=false;
+                                if (tablero[i][j][k]>0) {
+                                    hundido=false;
+                                    win=false;
+                                    break;
+                                }
                                 //revisamos toda la capa a ver si hay algun valor >0, que serian los barcos, si no hay significa que esta hundido
-                                if (tablero[0][k][j]>0) win=false;
                                 //lo mismo pero con el 1er nivel del tablero que serian donde estan todos los abrcos, si no hay barcos es una victoria
                             }
+                            if (!hundido&&!win) break;//las 2 se tienen que cumplir, porque si lo pongo con un or, no funcionaria lo de hundido
                         }
+                        if (!hundido&&!win) break;
                         if (hundido&&!(tablerocompleto1boolean)) {//vamos indicando que capas estan completas para no volver a hacerlas y que nos digan hundido
                             System.out.println("HUNDIDO, 3 barcos restantes");
                             tablerocompleto1 = i;
                             tablerocompleto1boolean=true;//ponemos estos valores para que no nos vuelva a hacer este if, asi no meteremos otro valor en el tablero completo ni se repetira el mensaje
                             hundido=false;
                         }
-                        if (hundido&&tablerocompleto1boolean) {
+                        if (hundido&&tablerocompleto1boolean&&!(tablerocompleto2boolean)) {
                             System.out.println("HUNDIDO, 2 barcos restantes");
                             tablerocompleto2 = i;
                             tablerocompleto2boolean=true;
