@@ -17,6 +17,7 @@ public class elJuegodelosBarcos {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         };
+        System.out.println("jugador 1, su turno.");
         int tipobarco; int NB4=1; int NB3=1; int NB2=2;//cantidad de barcos
         do {
             System.out.println("tienes "+NB4+" barco de 1x4, "+NB3+" de 1x3 y "+NB2+" de 1x2");
@@ -72,12 +73,22 @@ espacio solo para separar funciones
         boolean error;
         int cambio;
         System.out.println("este es tu tablero:");
+        System.out.print("    ");
+        for (int i = 0; i < tablero[0].length; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        System.out.println("  +---------------------+");
+        int filas=0;
         for (int[] ints : tablero) {
+            System.out.print(filas+" | ");
             for (int anInt : ints) {
                 System.out.print(anInt + " ");
             }
-            System.out.println();
+            System.out.println("|");
+            filas++;
         }
+        System.out.println("  +---------------------+");
         System.out.println("donde quieres colocar tu barco, pon las coordenadas de las 2 puntas del barco");
         do {
             error = false;
@@ -149,5 +160,4 @@ espacio solo para separar funciones
         while(error);
         return tablero;
     }
-    //volvi
 }
