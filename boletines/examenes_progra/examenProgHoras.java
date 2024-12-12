@@ -1,4 +1,4 @@
-package ejemplos_explicaciones;
+package examenes_progra;
 
 import java.util.Scanner;
 public class examenProgHoras {
