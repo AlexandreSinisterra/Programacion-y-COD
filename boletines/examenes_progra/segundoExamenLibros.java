@@ -1,6 +1,11 @@
 package examenes_progra;
 import java.util.Scanner;
 
+/**
+ * examen progra 2
+ * @author sandark67
+ * @version 1.0
+ */
 public class segundoExamenLibros {
 
     public static void main(String[] args) {
@@ -32,7 +37,7 @@ public class segundoExamenLibros {
     }
 
     public static void visualizar(String[] libreria) {
-        for (int i = 0; i < libreria.length; i++) {//pondría ubn bucle each for, pero en el ordinograma seria mas complicado, no se, nunca probe
+        for (int i = 0; i < libreria.length; i++) {//pondria ubn bucle each for, pero en el ordinograma seria mas complicado, no se, nunca probe
             if (libreria[i] == null) System.out.println("baleiro");
             else System.out.println(libreria[i]);
         }
