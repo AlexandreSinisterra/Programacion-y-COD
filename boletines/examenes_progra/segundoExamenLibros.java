@@ -1,6 +1,11 @@
 package examenes_progra;
 import java.util.Scanner;
 
+/**
+ * examen progra 2
+ * @author sandark67
+ * @version 1.0
+ */
 public class segundoExamenLibros {
     /**
      * @autor
