@@ -7,7 +7,10 @@ import java.util.Scanner;
  * @version 1.0
  */
 public class segundoExamenLibros {
-
+    /**
+     * @autor
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String decision, titulo;
@@ -43,6 +46,12 @@ public class segundoExamenLibros {
         }
     }
 
+    /**
+     * Esta funcion sirve para engadir un libro a lista
+     * @param libreria
+     * @param titulo
+     * @return
+     */
     public static boolean engadir(String[] libreria, String titulo) {
         boolean exito = false;
         for (int i = 0; i < libreria.length; i++) {
@@ -55,6 +64,13 @@ public class segundoExamenLibros {
         return exito;
     }
 
+
+    /**
+     *
+     * @param libreria
+     * @param posicion
+     * @return
+     */
     public static boolean eliminar(String[] libreria, int posicion) {
         boolean exito = true;
 
