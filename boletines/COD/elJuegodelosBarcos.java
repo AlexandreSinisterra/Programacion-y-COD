@@ -3,7 +3,16 @@ package COD;
 
 import java.util.Scanner;
 
+/**
+ * hundir la flota
+ * @version 2.0
+ * @author sandark67
+ */
 public class elJuegodelosBarcos {
+    /**
+     * función principal y sistema de ganado
+     * @param args
+     */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("empecemos el juego");
@@ -24,8 +33,12 @@ public class elJuegodelosBarcos {
         }
     }
 
+    /**
+     * esta funcion realiza las partidas, en mi caso la diseñe para que realizara 2
+     * @return devulve los turnos que tardo el jugador en derribar todos los barcos
+     */
     public static int jugador() {
-        Scanner sc = new Scanner(System.in);//hice un
+        Scanner sc = new Scanner(System.in);
         int[][][] tablero = new int[5][10][10];//creacion de un array tridimensional, seria 5 de profundo y un 10x10
         for (int i = 0; i < 5; i++)
                 /*lo hago con un triple array ya que en cada plano sin contar con el primero que seria el tablero, colocaria un barco x plano
@@ -106,10 +119,13 @@ public class elJuegodelosBarcos {
         return disparobarco(tablero2, tablero);//devolvemos el valor que nos da "disparobarco" que serian los turnos que hemos tardado
     }
 
-    /*
-
-espacio solo para separar funciones
-
+    /**
+     * esta funcion sirve para ir metiendo los barcos, podria ser perfectamente un void pero lo que pasa es que cuando lo hice no
+     * sabía que los arrays se pasaban por referencia, por lo tanto, se pueden cambiar los valores desde diferentes funciones
+     * @param tablero nuestro tablero de barcos
+     * @param tamaño_barco el tamaño
+     * @param vuelta las vueltas las utilizo para ir metiendo los barcos en diferentes capas de la matriz tridimensional
+     * @return
      */
     public static int[][][] meterbarco(int[][][] tablero, int tamaño_barco, int vuelta) {//va cambiendo el tablero, metiendo los barcos
         Scanner sc = new Scanner(System.in);
@@ -207,10 +223,12 @@ espacio solo para separar funciones
         return tablero;//sacamos el tablero como valor
     }
 
-    /*
-
-espacio solo para separar funciones
-
+    /**
+     * esta funcion esta diseñada para los disparos, derribar barcos, decir si es tocado, agua, hundido, e incluso para saber cuando ya hemos ganado
+     * devuelve el numero de turnos a la funcion jugador, luego esta la pasa a la main y almacena cuanto ha tardado
+     * @param tablero2 tablero donde disparamos y no sabemos donde están los barcos
+     * @param tablero tablero con los barcos
+     * @return
      */
     public static int disparobarco(String[][] tablero2, int[][][] tablero) {//el turno del que dispara
         boolean hundido;
