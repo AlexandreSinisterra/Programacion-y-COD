@@ -11,3 +11,5 @@ Esta es la rama master
 acabo de hacer un merge
 
 acabo de hacer un rebasing, creo que hizo merge con cada commit de las otras rmas
+
+ahora origin y master estan juntos
