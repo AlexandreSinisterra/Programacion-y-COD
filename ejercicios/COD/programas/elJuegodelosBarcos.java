@@ -1,5 +1,5 @@
 
-package COD;
+package COD.programas;
 
 import java.util.Scanner;
 
