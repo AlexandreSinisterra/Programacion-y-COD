@@ -26,3 +26,6 @@ acabo de hacer un merge despues del fetch, no lo entiendo muy bien, dice que baj
 repositorio remoto a la rama origin/master y luego tienes q pasarlos a master con un merge
 pero a la hora de hacer merge no me dejaba con origin/master, solo con pureba 3
 a lo mejor es que solo se subio al repositorio lo de la ram principal? idk
+
+acabo de borrar la rama prueba 3, me arrepiento quedaba muy bien en el mini grafico
+de git en intellij 
