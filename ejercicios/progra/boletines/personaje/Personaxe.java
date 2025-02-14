@@ -1,6 +1,6 @@
 package progra.boletines.personaje;
 
-class personaje {
+class Personaxe {
     String nome;
     int vida;
     int resistencia;
@@ -10,7 +10,7 @@ class personaje {
     String apariencia;
     String[] habilidades;
     String[] equipamento;
-    public personaje() {
+    public Personaxe() {
         nome = "Invitado";
         vida = 10;
         resistencia = 20;
@@ -21,7 +21,7 @@ class personaje {
         this.habilidades = new String[5];
         this.equipamento = new String[5];
     }
-    public personaje(String nom, int vida, int res, int forza, int vel, int exp, String apariencia, String[] habilidades, String[] equipamientos) {
+    public Personaxe(String nom, int vida, int res, int forza, int vel, int exp, String apariencia, String[] habilidades, String[] equipamientos) {
         nome = nom;
         setVida(vida); //setVida
         setResistencia(res);
@@ -116,7 +116,7 @@ class personaje {
     public class main {
         public static void main(String[] args) {
             String[] hab = {"Saltar", "Xray", "Correr", "Nadar", "Volar", "Esquivar"};
-            personaje personaje = new personaje();
+            Personaxe personaje = new Personaxe();
             personaje.setHabilidades(hab); // Establece las habilidades
             String[] habilidadesPersonaje = personaje.getHabilidades(); // Obtiene las habilidades
             // Imprime las habilidades
@@ -134,20 +134,38 @@ class personaje {
                 System.out.println(equipamiento);
             }
             System.out.println("-----------------------------");
+
             // Crear instancias de la clase Punto
+
             Punto p1 = new Punto(); // Punto en (0, 0)
+
             Punto p2 = new Punto(5); // Punto en (5, 5)
+
             Punto p3 = new Punto(3.5, 4.5); // Punto en (3.5, 4.5)
+
             Punto p4 = new Punto(2, 3); // Punto en (2.0, 3.0)
+
+
             // Imprimir las coordenadas de los puntos
+
             System.out.println("Punto 1: (" + p1.getX() + ", " + p1.getY() + ")");
+
             System.out.println("Punto 2: (" + p2.getX() + ", " + p2.getY() + ")");
+
             System.out.println("Punto 3: (" + p3.getX() + ", " + p3.getY() + ")");
+
             System.out.println("Punto 4: (" + p4.getX() + ", " + p4.getY() + ")");
+
+
             // Modificar las coordenadas del Punto 1
+
             p1.setX(-1); // Intentar establecer un valor negativo
+
             p1.setY(2); // Establecer un valor positivo
+
             System.out.println("Punto 1 después de modificar: (" + p1.getX() + ", " + p1.getY() + ")");
+
         }
+
     }
 }
