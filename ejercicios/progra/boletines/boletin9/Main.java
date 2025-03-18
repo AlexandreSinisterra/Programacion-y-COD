@@ -8,6 +8,5 @@ public class Main {
         libro2.amosar();
         Libro libro3 = new Libro("Dioses antiguos y su mundo","H.P LofCraft",1993,(short) 300,5);
         libro3.amosar();
-
     }
 }
