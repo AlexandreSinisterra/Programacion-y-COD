@@ -49,7 +49,8 @@ public class Voluntarios extends Traballador implements gastoIngreso{
 
     @Override
     public String aCadea() {
-        return "";
+        return "nome: %s, edade: %d, profesion: %s, indicadas: %d, ingresos: %d,".formatted(getNome(),edade, profesion, indicadas, ingresos);
+
     }
 
     @Override
