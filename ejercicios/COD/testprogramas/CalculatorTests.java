@@ -4,9 +4,9 @@ import COD.programas.Calculator;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.CsvSource;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CalculatorTests {
+public class CalculatorTests {
 
     // Test básico de la suma de 1 + 1
     @Test
@@ -20,7 +20,7 @@ class CalculatorTests {
     @ParameterizedTest(name = "{0} + {1} = {2}")
     @CsvSource({
             "0, 1, 1",
-            "1, 2, 4",
+            "1, 2, 3",
             "49, 51, 100",
             "1, 100, 101"
     })
