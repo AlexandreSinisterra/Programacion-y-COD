@@ -6,9 +6,9 @@ public class Viaxeiro extends barcos implements calcularFacturacion{
         this.nLicenciaV = nLicenciaV;
         this.eslora = eslora;
         this.vDesprazado = vDesprazado;
-        this.setnTripulantes(nTripulantes,nPasaxeirosT,nPasaxeiros1a);
-        this.setnPasaxeirosT(nTripulantes,nPasaxeirosT,nPasaxeiros1a);
-        this.setnPasaxeiros1a(nTripulantes,nPasaxeirosT,nPasaxeiros1a);
+        this.setnTripulantes(nTripulantes,nPasaxeirosT,nPasaxeiros1a,nSalvavidas);
+        this.setnPasaxeirosT(nTripulantes,nPasaxeirosT,nPasaxeiros1a,nSalvavidas);
+        this.setnPasaxeiros1a(nTripulantes,nPasaxeirosT,nPasaxeiros1a,nSalvavidas);
         this.nCamions = nCamions;
         this.dataInspeccion = dataInspeccion;
         this.nSalvavidas = nSalvavidas;
@@ -42,7 +42,7 @@ public class Viaxeiro extends barcos implements calcularFacturacion{
         return nTripulantes;
     }
 
-    public void setnTripulantes(int nTripulantes, int nPasaxeirosT, int nPasaxeiros1a) {
+    public void setnTripulantes(int nTripulantes, int nPasaxeirosT, int nPasaxeiros1a, int nSalvavidas) {
        if(nTripulantes+nPasaxeirosT+nPasaxeiros1a<=nSalvavidas)
         this.nTripulantes = nTripulantes;
     }
@@ -51,18 +51,18 @@ public class Viaxeiro extends barcos implements calcularFacturacion{
         return nPasaxeirosT;
     }
 
-    public void setnPasaxeirosT(int nTripulantes, int nPasaxeirosT, int nPasaxeiros1a) {
+    public void setnPasaxeirosT(int nTripulantes, int nPasaxeirosT, int nPasaxeiros1a, int nSalvavidas) {
         if(nTripulantes+nPasaxeirosT+nPasaxeiros1a<=nSalvavidas)
-            this.nPasaxeirosT = nTripulantes;
+            this.nPasaxeirosT = nPasaxeirosT;
     }
 
     public int getnPasaxeiros1a() {
         return nPasaxeiros1a;
     }
 
-    public void setnPasaxeiros1a(int nTripulantes, int nPasaxeirosT, int nPasaxeiros1a) {
+    public void setnPasaxeiros1a(int nTripulantes, int nPasaxeirosT, int nPasaxeiros1a, int nSalvavidas) {
         if(nTripulantes+nPasaxeirosT+nPasaxeiros1a<=nSalvavidas)
-            this.nPasaxeiros1a = nTripulantes;
+            this.nPasaxeiros1a = nPasaxeiros1a;
     }
 
     public int getnCamions() {
@@ -108,23 +108,27 @@ public class Viaxeiro extends barcos implements calcularFacturacion{
 
     @Override
     public String aCadea() {
-        return "barcos{" +
-                "bandeira='" + getBandeira() + '\'' +
-                ", nome='" + getNome() + '\'' +
-                ", anoBotadura=" + getAnoBotadura() +
-                ", matricula='" + getMatricula() + '\'' +
-                '}'+'\''+
-                "Viaxeiro{" +
-                "nLicenciaV=" + nLicenciaV +
-                ", eslora=" + eslora +
-                ", vDesprazado=" + vDesprazado +
-                ", nTripulantes=" + nTripulantes +
-                ", nPasaxeirosT=" + nPasaxeirosT +
-                ", nPasaxeiros1a=" + nPasaxeiros1a +
-                ", nCamions=" + nCamions +
-                ", dataInspeccion='" + dataInspeccion + '\'' +
-                ", nSalvavidas=" + nSalvavidas +
-                '}';
+
+        String RESET = "\u001B[0m";
+        String BLUE = "\u001B[34m";
+        String GREEN = "\u001B[32m";
+        String YELLOW = "\u001B[33m";
+
+        return BLUE + "Barcos:\n" +
+                GREEN + "  Bandeira: " + YELLOW + "'" + getBandeira() + "'\n" +
+                GREEN + "  Nome: " + YELLOW + "'" + getNome() + "'\n" +
+                GREEN + "  Ano de Botadura: " + YELLOW + getAnoBotadura() + "\n" +
+                GREEN + "  Matricula: " + YELLOW + "'" + getMatricula() + "'\n\n" +
+                BLUE + "Viaxeiro:\n" +
+                GREEN + "  Número de Licencia: " + YELLOW + nLicenciaV + "\n" +
+                GREEN + "  Eslora: " + YELLOW + eslora + "\n" +
+                GREEN + "  Volumen Desplazado: " + YELLOW + vDesprazado + " m^3\n" +
+                GREEN + "  Número de Tripulantes: " + YELLOW + nTripulantes + "\n" +
+                GREEN + "  Número de Pasaxeiros Totales: " + YELLOW + nPasaxeirosT + "\n" +
+                GREEN + "  Número de Pasaxeiros 1ª Clase: " + YELLOW + nPasaxeiros1a + "\n" +
+                GREEN + "  Número de Camions: " + YELLOW + nCamions + "\n" +
+                GREEN + "  Data de Inspección: " + YELLOW + "'" + dataInspeccion + "'\n" +
+                GREEN + "  Número de Salvavidas: " + YELLOW + nSalvavidas + "\n" + RESET;
     }
 
     @Override

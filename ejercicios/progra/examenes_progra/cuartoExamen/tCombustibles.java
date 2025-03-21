@@ -48,30 +48,33 @@ public class tCombustibles extends transporte implements calcularFacturacion{
 
     @Override
     public String aCadea() {
-        return "barcos{" +
-                "bandeira='" + getBandeira() + '\'' +
-                ", nome='" + getNome() + '\'' +
-                ", anoBotadura=" + getAnoBotadura() +
-                ", matricula='" + getMatricula() + '\'' +
-                '}'+'\''+
-                "transporte{" +
-                "nLicenciaM=" + getnLicenciaM() +
-                ", dataInspeccion='" + getDataInspeccion() + '\'' +
-                ", nSalvavidas=" + getnSalvavidas() +
-                ", slora=" + getSlora() +
-                ", vDesprazado=" + getvDesprazado() +
-                ", nTripulantes=" + getnTripulantes() +
-                '}'+'\''+
-                "tCombustibles{" +
-                "tFluido='" + tFluido + '\'' +
-                ", vFluido=" + vFluido +
-                ", nDepositos=" + nDepositos +
-                ", pMeM=" + pMeM +
-                '}';
+
+        String RESET = "\u001B[0m";
+        String BLUE = "\u001B[34m";
+        String GREEN = "\u001B[32m";
+        String YELLOW = "\u001B[33m";
+
+        return BLUE + "Barcos:\n" +
+                GREEN + "  Bandeira: " + YELLOW + "'" + getBandeira() + "'\n" +
+                GREEN + "  Nome: " + YELLOW + "'" + getNome() + "'\n" +
+                GREEN + "  Ano de Botadura: " + YELLOW + getAnoBotadura() + "\n" +
+                GREEN + "  Matricula: " + YELLOW + "'" + getMatricula() + "'\n\n" +
+                BLUE + "Transporte:\n" +
+                GREEN + "  Número de Licencia: " + YELLOW + getnLicenciaM() + "\n" +
+                GREEN + "  Data de Inspección: " + YELLOW + "'" + getDataInspeccion() + "'\n" +
+                GREEN + "  Número de Salvavidas: " + YELLOW + getnSalvavidas() + "\n" +
+                GREEN + "  Slora: " + YELLOW + getSlora() + "\n" +
+                GREEN + "  Volumen desplazado: " + YELLOW + getvDesprazado() + " m^3\n" +
+                GREEN + "  Número de Tripulantes: " + YELLOW + getnTripulantes() + "\n\n" +
+                BLUE + "Combustibles:\n" +
+                GREEN + "  Tipo de Fluido: " + YELLOW + "'" + gettFluido() + "'\n" +
+                GREEN + "  Volumen de Fluido: " + YELLOW + getvFluido() + "L\n" +
+                GREEN + "  Número de Depósitos: " + YELLOW + getnDepositos() + "\n" +
+                GREEN + "  Precio por tonelada y por milla: " + YELLOW + getpMeM() + " kg\n" + RESET;
     }
 
     @Override
     public double calcularFacturacion(double millas) {
-        return millas*vFluido*pMeM;
+        return millas*pMeM+vFluido*pMeM;
     }
 }
