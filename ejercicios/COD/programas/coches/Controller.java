@@ -1,5 +1,7 @@
-import java.util.ArrayList;
+package COD.programas.coches;
 
+
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -7,12 +9,10 @@ public class Controller {
      * Funcion para crear un coche
      * @return
      */
-    public static String crearCoche(){
-
+    public static void crearCoche(){
         String modelo = View.Modelo();
         String matricula = View.Matricula();
-        Coche nuevo = Model.crearCoche(modelo, matricula);
-        return nuevo.matricula;
+        Model.crearCoche(modelo, matricula);
     }
 
     /**

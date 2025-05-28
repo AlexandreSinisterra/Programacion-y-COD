@@ -1,4 +1,4 @@
-package COD.programas.coches;
+package COD.soluciones.coches.model;
 
 public class Coche {
     public String matricula;
